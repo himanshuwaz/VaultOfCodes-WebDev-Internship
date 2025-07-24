@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipeflix - Your Culinary Journey</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">Recipeflix</div>
+        <nav>
+            <ul>
+                <li><a href="#browse">Browse Recipes</a></li>
+                <li><a href="#add">Add Your Recipe</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>Discover Your Next Favorite Dish</h2>
+                <p>Explore a world of flavors, from quick weeknight meals to gourmet adventures.</p>
+                <div class="hero-search">
+                    <input type="text" id="search-input" placeholder="Search for ingredients, cuisines, or recipes...">
+                    <button>Search</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="add-recipe-section" id="add">
+            <h2>Share Your Culinary Masterpiece</h2>
+            <form id="add-recipe-form">
+                <div class="form-group">
+                    <label for="recipe-name">Recipe Title:</label>
+                    <input type="text" id="recipe-name" required placeholder="e.g., Spicy Thai Green Curry">
+                </div>
+
+                <div class="form-group">
+                    <label for="image-url">Image URL (Optional):</label>
+                    <input type="url" id="image-url" placeholder="e.g., https://example.com/curry.jpg">
+                </div>
+
+                <div class="form-group">
+                    <label for="ingredients">Key Ingredients (comma-separated):</label>
+                    <textarea id="ingredients" rows="3" placeholder="e.g., coconut milk, chicken, green curry paste, basil" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="instructions">Preparation Steps:</label>
+                    <textarea id="instructions" rows="7" placeholder="e.g., 1. Sauté curry paste. 2. Add chicken..."></textarea>
+                </div>
+
+                <button type="submit">Publish Recipe</button>
+            </form>
+        </section>
+
+        <section class="browse-recipes-section" id="browse">
+            <h2>Featured Recipes</h2>
+            <div id="recipes-container">
+                <div class="recipe-card">
+                    <div class="recipe-image-placeholder" style="background-image: url('https://via.placeholder.com/300x200?text=Delicious+Pasta');"></div>
+                    <div class="card-content">
+                        <h3>Classic Spaghetti Carbonara</h3>
+                        <p class="card-ingredients">Pasta, Guanciale, Eggs, Pecorino</p>
+                        <p class="card-description">A rich, creamy Italian classic with crispy guanciale and a velvety egg sauce.</p>
+                        <div class="card-hover-details">
+                            <h4>Full Recipe:</h4>
+                            <ul>
+                                <li>200g spaghetti</li>
+                                <li>100g guanciale</li>
+                                <li>2 large eggs</li>
+                                <li>50g Pecorino Romano</li>
+                                <li>Black pepper</li>
+                            </ul>
+                            <p>Cook pasta. Render guanciale. Mix eggs & cheese. Combine all quickly with pasta water for a creamy sauce.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recipe-card">
+                    <div class="recipe-image-placeholder" style="background-image: url('https://via.placeholder.com/300x200?text=Fresh+Salad');"></div>
+                    <div class="card-content">
+                        <h3>Vibrant Green Salad with Vinaigrette</h3>
+                        <p class="card-ingredients">Lettuce, Cucumber, Tomato, Vinaigrette</p>
+                        <p class="card-description">A refreshing and healthy side dish, perfect for any meal.</p>
+                        <div class="card-hover-details">
+                            <h4>Full Recipe:</h4>
+                            <ul>
+                                <li>1 head romaine lettuce</li>
+                                <li>1 cucumber</li>
+                                <li>1 tomato</li>
+                                <li>Olive oil, vinegar, mustard</li>
+                            </ul>
+                            <p>Chop veggies. Whisk dressing. Toss and serve.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recipe-card">
+                    <div class="recipe-image-placeholder" style="background-image: url('https://via.placeholder.com/300x200?text=Choc+Chip+Cookies');"></div>
+                    <div class="card-content">
+                        <h3>Irresistible Chocolate Chip Cookies</h3>
+                        <p class="card-ingredients">Butter, Sugar, Flour, Chocolate Chips</p>
+                        <p class="card-description">Chewy, gooey, and packed with chocolatey goodness.</p>
+                        <div class="card-hover-details">
+                            <h4>Full Recipe:</h4>
+                            <ul>
+                                <li>1/2 cup butter</li>
+                                <li>1/2 cup granulated sugar</li>
+                                <li>1/4 cup brown sugar</li>
+                                <li>1 egg, vanilla, flour, baking soda, salt</li>
+                                <li>1 cup chocolate chips</li>
+                            </ul>
+                            <p>Cream butter/sugars. Add egg/vanilla. Mix in dry ingredients, then chips. Bake until golden.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recipe-card">
+                    <div class="recipe-image-placeholder" style="background-image: url('https://via.placeholder.com/300x200?text=Spicy+Curry');"></div>
+                    <div class="card-content">
+                        <h3>Aromatic Thai Green Curry</h3>
+                        <p class="card-ingredients">Coconut Milk, Chicken, Green Curry Paste</p>
+                        <p class="card-description">A fragrant and spicy curry with tender chicken and fresh vegetables.</p>
+                        <div class="card-hover-details">
+                            <h4>Full Recipe:</h4>
+                            <ul>
+                                <li>400ml coconut milk</li>
+                                <li>200g chicken breast</li>
+                                <li>2 tbsp green curry paste</li>
+                                <li>Vegetables (bell peppers, bamboo shoots)</li>
+                                <li>Fish sauce, sugar, basil leaves</li>
+                            </ul>
+                            <p>Sauté paste, add chicken and cook. Stir in coconut milk and veggies. Simmer until cooked through. Season and add basil.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Recipeflix. Your ultimate recipe discovery platform.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,425 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+    --primary-dark: #141414; /* Netflix background */
+    --secondary-dark: #222222; /* Card background */
+    --accent-red: #E50914; /* Netflix red */
+    --text-light: #ffffff;
+    --text-grey: #a0a0a0;
+    --border-grey: #444;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll due to transitions */
+}
+
+/* Header & Navigation */
+header {
+    background-color: rgba(0,0,0,0.8);
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent-red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-red);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 400px; /* Adjust height as needed */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1546069901-d0078170da28?fit=crop&w=1920&q=80') center center / cover no-repeat; /* Placeholder background image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h2 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: white;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.hero-search {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.hero-search input[type="text"] {
+    padding: 15px 20px;
+    width: 60%;
+    max-width: 400px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    background-color: rgba(255,255,255,0.9);
+    color: var(--primary-dark);
+}
+
+.hero-search button {
+    background-color: var(--accent-red);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero-search button:hover {
+    background-color: #c10811; /* Darker red */
+}
+
+/* Main Content Area */
+main {
+    padding: 40px 30px;
+    max-width: 1400px; /* Wider content area */
+    margin: 0px auto;
+}
+
+section {
+    background-color: var(--secondary-dark);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-family: var(--font-heading);
+    color: white;
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: center; /* Center section titles */
+    border-bottom: 2px solid var(--border-grey);
+    padding-bottom: 15px;
+}
+
+/* Add Recipe Section */
+.add-recipe-section form {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    margin: 0 auto;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.add-recipe-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.add-recipe-section input[type="text"],
+.add-recipe-section input[type="url"],
+.add-recipe-section textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-grey);
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    box-sizing: border-box; /* Include padding in width */
+    transition: border-color 0.3s ease;
+}
+
+.add-recipe-section input[type="text"]:focus,
+.add-recipe-section input[type="url"]:focus,
+.add-recipe-section textarea:focus {
+    border-color: var(--accent-red);
+    outline: none;
+}
+
+.add-recipe-section textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.add-recipe-section button[type="submit"] {
+    background-color: var(--accent-red);
+    color: white;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: center; /* Center the button */
+    margin-top: 20px;
+}
+
+.add-recipe-section button[type="submit"]:hover {
+    background-color: #c10811;
+    transform: translateY(-2px);
+}
+
+
+/* Recipe List Styles (Netflix Card Grid) */
+.browse-recipes-section h2 {
+    margin-top: 0; /* Reset for this section */
+}
+
+#recipes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 25px;
+    justify-content: center; /* Center cards if not filling full row */
+}
+
+.recipe-card {
+    background-color: var(--primary-dark); /* Darker background for card itself */
+    border-radius: 8px;
+    overflow: hidden; /* Important for image and hover effect */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* For hover details positioning */
+    cursor: pointer;
+    border: 1px solid transparent; /* For hover border */
+}
+
+.recipe-card:hover {
+    transform: translateY(-8px) scale(1.03); /* Lift and slightly enlarge on hover */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+    border-color: var(--accent-red); /* Highlight border on hover */
+    z-index: 10; /* Bring hovered card to front */
+}
+
+.recipe-image-placeholder {
+    width: 100%;
+    height: 180px; /* Fixed height for image area */
+    background-color: #333; /* Placeholder color */
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--border-grey);
+}
+
+.card-content {
+    padding: 15px;
+    position: relative; /* For content within the card */
+    z-index: 2; /* Ensure content is above hover details when not active */
+}
+
+.card-content h3 {
+    font-family: var(--font-heading);
+    color: var(--text-light);
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    min-height: 40px; /* Ensure consistent height for titles */
+}
+
+.card-ingredients {
+    color: var(--text-grey);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Truncate long ingredient lists */
+}
+
+.card-description {
+    font-size: 1rem;
+    color: var(--text-light);
+    min-height: 45px; /* Consistent height for description */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+   
+    -webkit-box-orient: vertical;
+}
+
+/* Hover Details - Hidden by default, appears on card hover */
+.card-hover-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.95); /* Semi-transparent dark overlay */
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: white;
+    overflow-y: auto; /* Allow scrolling for long details */
+    opacity: 0;
+    transform: translateY(10px); /* Start slightly below */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 5; /* Above content, below card */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically if space allows */
+}
+
+.recipe-card:hover .card-hover-details {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-hover-details h4 {
+    color: var(--accent-red);
+    font-family: var(--font-heading);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.card-hover-details ul {
+    list-style: none; /* No bullets for ingredients here */
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.card-hover-details ul li {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+    color: var(--text-grey);
+}
+
+.card-hover-details p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: var(--text-light);
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--primary-dark);
+    color: var(--text-grey);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem 1rem;
+    }
+    nav ul {
+        margin-top: 15px;
+        gap: 15px;
+    }
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .hero-search {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-search input[type="text"],
+    .hero-search button {
+        width: 80%;
+        max-width: 350px;
+    }
+    main {
+        padding: 20px 15px;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    #recipes-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.8rem;
+    }
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+    .recipe-card {
+        transform: none !important; /* Disable hover transform on small screens */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        border: 1px solid var(--border-grey);
+    }
+    .card-hover-details {
+        position: static; /* Show details below on small screens */
+        opacity: 1;
+        transform: none;
+        background-color: transparent;
+        border-radius: 0;
+        padding-top: 0;
+        margin-top: -5px;
+    }
+    .card-description {
+        display: block; /* Show full description */
+        min-height: auto;
+    }
+}
