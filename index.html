@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himanshu Sanjay Waja - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --text-dark: #1f2937;
+            --text-medium: #4b5563;
+            --text-light: #374151;
+            --bg-light: #f8fafc;
+            --bg-gradient-light: linear-gradient(145deg, #f2f6fc, #ffffff);
+            --bg-gradient-dark: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            --shadow-light: 0 8px 30px rgba(0,0,0,0.08);
+            --shadow-medium: 0 4px 20px rgba(0,0,0,0.05);
+            --border-radius: 15px;
+            --transition-speed: 0.3s;
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-light);
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 60px 20px;
+            background: var(--bg-gradient-light);
+            text-align: center;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .info-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            flex: 1 1 280px;
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow-light);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+            color: var(--text-light);
+            text-align: left;
+        }
+
+        .info-card li strong {
+            color: var(--text-dark);
+        }
+
+        .info-card em {
+            font-style: italic;
+            color: var(--primary-color);
+        }
+
+        /* Connect Section */
+        .connect-section {
+            padding: 60px 20px;
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .social-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: var(--shadow-medium);
+            text-decoration: none;
+            color: var(--text-dark); /* Default color, overridden by inline for specific brands */
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Certification Section */
+        .certifications-section {
+            padding: 40px 20px;
+            background: var(--bg-gradient-dark); /* Darker background for contrast */
+            color: white;
+        }
+
+        .certifications-section h2 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .folder {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            overflow: hidden;
+            transition: all var(--transition-speed) ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .folder:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .folder h3 {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 20px;
+            margin: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.5rem;
+            transition: background var(--transition-speed) ease;
+        }
+
+        .folder h3:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .toggle-arrow {
+            font-size: 1.2rem;
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .folder.active .toggle-arrow {
+            transform: rotate(90deg);
+        }
+
+        .certs-grid {
+            display: none; /* Hidden by default */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .folder.active .certs-grid {
+            display: grid; /* Shown when active */
+        }
+
+        .cert-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all var(--transition-speed) ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cert-card iframe,
+        .cert-card img {
+            width: 100%;
+            height: 200px; /* Consistent height for previews */
+            border: none;
+            border-radius: 8px;
+            background: white; /* Background for iframes */
+            margin-bottom: 10px;
+            object-fit: cover; /* For images */
+        }
+
+        .cert-card h4 {
+            color: white;
+            font-size: 1rem;
+            margin-top: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            word-wrap: break-word;
+        }
+
+        .stats {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            color: white;
+            font-size: 1.2em;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Internship Button Style */
+        .internship-button-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--bg-light);
+        }
+
+        .internship-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 1.1em;
+        }
+        .internship-button:hover {
+            background-color: #45a049; /* Darker green */
+            transform: scale(1.05);
+        }
+        .internship-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Project Spotlight Card Style */
+        .custom-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 20px;
+            border-radius: 15px;
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            margin: 40px auto;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* User Registration Form Styles */
+        .form-section {
+            padding: 60px 20px;
+            background: var(--bg-gradient-light);
+            text-align: center;
+        }
+        .form-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin: 0 auto; /* Center the form */
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+        .form-container input, .form-container select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box; /* Ensure padding doesn't increase width */
+        }
+        .form-container input[type="file"] {
+            padding: 3px;
+        }
+        .form-container label {
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            text-align: left; /* Align labels to the left */
+        }
+        .form-container button {
+            background-color: #667eea;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .form-container button:hover {
+            background-color: #5565d2;
+        }
+        .strength {
+            margin-top: 5px;
+            font-weight: 600;
+            text-align: left;
+            font-size: 0.9em;
+        }
+        .weak { color: red; }
+        .medium { color: orange; }
+        .strong { color: green; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2.2rem;
+            }
+            h3 {
+                font-size: 1.4rem;
+            }
+            .about-section p {
+                font-size: 1rem;
+            }
+            .info-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .info-card {
+                flex: 1 1 90%; /* Take more width on smaller screens */
+            }
+            .social-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+            .folder h3 {
+                font-size: 1.2rem;
+                padding: 15px;
+            }
+            .certs-grid {
+                grid-template-columns: 1fr;
+            }
+            .cert-card iframe,
+            .cert-card img {
+                height: 150px; /* Adjust height for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2><strong>Himanshu Sanjay Waja</strong></h2>
+                <p>
+                    Hey! I'm Himanshu Sanjay Waja, a passionate BCA student and budding software developer who’s obsessed with building, breaking, and learning how tech works behind the scenes. I’m currently diving deep into the world of AI, ML, and full-stack development, with hands-on internship experience from Infosys and other real-world projects.
+                    <br><br>
+                    From frontend vibes to backend brains — I love solving real problems with smart code. I'm always experimenting with new tools and frameworks to sharpen my edge and push boundaries.
+                </p>
+
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h3>⚛ Tech Stack</h3>
+                        <ul>
+                            <li><strong>Languages:</strong> Python, JavaScript, C/C++, Java, C#</li>
+                            <li><strong>Frontend:</strong> HTML, CSS, JavaScript, React</li>
+                            <li><strong>Backend:</strong> Flask, Node.js (basic), Express</li>
+                            <li><strong>Database:</strong> Oracle, MySQL</li>
+                            <li><strong>AI/ML:</strong> Scikit-learn, TensorFlow, OpenCV</li>
+                            <li><strong>Tools:</strong> GitHub, Colab, VS Code</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🎯 Focus Areas</h3>
+                        <ul>
+                            <li>AI/ML + Deep Learning</li>
+                            <li>Full Stack Web Dev</li>
+                            <li>Real-World Projects</li>
+                            <li>Open Source Collaboration</li>
+                            <li>Problem Solving</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🌱 Goals & Motto</h3>
+                        <p>
+                            🚀 Become a top AI engineer<br>
+                            🌍 Launch global-impact products<br>
+                            🤝 Grow as a team player<br><br>
+                            <em>“Code. Learn. Build. Repeat.”</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="connect" class="connect-section">
+            <div class="container">
+                <h2>🔗 Connect With Me</h2>
+                <div class="social-grid">
+                    <a href="https://x.com/himanshuwaz" target="_blank" class="social-card" style="color: #1da1f2;">
+                        🐦 Twitter (X)
+                    </a>
+                    <a href="https://www.linkedin.com/in/himanshu-waja-8488b0350/" target="_blank" class="social-card" style="color: #0e76a8;">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://www.instagram.com/himanshu.waza/" target="_blank" class="social-card" style="color: #e1306c;">
+                        📸 Instagram
+                    </a>
+                    <a href="https://t.me/himanshuwaz" target="_blank" class="social-card" style="color: #229ED9;">
+                        📬 Telegram
+                    </a>
+                    <a href="http://quora.com/profile/Himanshu-Waja" target="_blank" class="social-card" style="color: #b92b27;">
+                        🟥 Quora
+                    </a>
+                    <a href="https://github.com/himanshuwaz" target="_blank" class="social-card" style="color: #333;">
+                        💻 GitHub
+                    </a>
+                    <a href="https://codeforces.com/profile/himanshu_waja" target="_blank" class="social-card" style="color: #f36118;">
+                        🏆 Codeforces
+                    </a>
+                    <a href="https://www.codechef.com/users/himanshuwaz" target="_blank" class="social-card" style="color: #5b4638;">
+                        🍛 CodeChef
+                    </a>
+                    <a href="https://www.geeksforgeeks.org/user/himans1yz6/" target="_blank" class="social-card" style="color: #2f8d46;">
+                        💚 GeeksForGeeks
+                    </a>
+                    <a href="https://wa.me/qr/VOHVWNMIG2MLH1" target="_blank" class="social-card" style="color: #25d366;">
+                        💬 WhatsApp
+                    </a>
+                    <a href="mailto:himanshuwaz@gmail.com" class="social-card" style="color: #ea4335;">
+                        ✉️ Email Me
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="certifications-section">
+            <div class="container">
+                <h2>📜 My Certifications</h2>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>COMPANY <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/COMPANY/artificial-intelligence_accenture.pdf"></iframe>
+                            <h4>Artificial Intelligence - Accenture</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/COMPANY/DIGITAL SKILLS_ WEB ANALYTICS_accenture.pdf"></iframe>
+                            <h4>Digital Skills: Web Analytics - Accenture</h4>
+                        </div>
+                        <div class="cert-card">
+                            <img src="certificates/Academic_Certificate/COMPANY/Chatgpt for Everyone.png" alt="ChatGPT for Everyone" />
+                            <h4>ChatGPT for Everyone</h4>
+                        </div>
+                        <div class="cert-card">
+                            <img src="certificates/Academic_Certificate/COMPANY/Introduction to Data Engineering and Bigdata.png" alt="Introduction to Data Engineering and BigData" />
+                            <h4>Introduction to Data Engineering and BigData</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/COMPANY/Excel-Certificate.pdf"></iframe>
+                            <h4>Excel Certificate</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/COMPANY/iOS Development.pdf"></iframe>
+                            <h4>iOS Development</h4>
+                        </div>
+                        <div class="cert-card">
+                            <img src="certificates/Academic_Certificate/COMPANY/Neo4j Certified Professional.jpg" alt="Neo4j Certified Professional" />
+                            <h4>Neo4j Certified Professional</h4>
+                        </div>
+                        <div class="cert-card">
+                            <img src="certificates/Academic_Certificate/COMPANY/Neo4j Graph Data Science Certification.jpg" alt="Neo4j Graph Data Science Certification" />
+                            <h4>Neo4j Graph Data Science Certification</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/COMPANY/Introduction to TiDB.pdf"></iframe>
+                            <h4>Introduction to TiDB</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/COMPANY/TiDB Essentials.pdf"></iframe>
+                            <h4>TiDB Essentials</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/COMPANY/TiDB Practitioner.pdf"></iframe>
+                            <h4>TiDB Practitioner</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/COMPANY/TCS_IONGroup Discussion.pdf"></iframe>
+                            <h4>TCS ION Group Discussion</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/COMPANY/TCS_IONWrite Effective Resume And Cover Letter.pdf"></iframe>
+                            <h4>TCS ION Write Effective Resume And Cover Letter</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/COMPANY/ISP 51 - Direct Entry.pdf"></iframe>
+                            <h4>ISP 51 - Direct Entry</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>Cisco <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Cisco/Introduction Data Science.pdf"></iframe>
+                            <h4>Introduction to Data Science</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Cisco/Introduction to Cybersecurity.pdf"></iframe>
+                            <h4>Introduction to Cybersecurity</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Cisco/Introduction to IoT and Digital  Transformation.pdf"></iframe>
+                            <h4>Introduction to IoT and Digital Transformation</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Cisco/Networking Basics.pdf"></iframe>
+                            <h4>Networking Basics</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Cisco/Python Essentials 1.pdf"></iframe>
+                            <h4>Python Essentials 1</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>DSA <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/DSA/30 Days DSA Bootcamp.pdf"></iframe>
+                            <h4>30 Days DSA Bootcamp</h4>
+                        </div>
+                        <div class="cert-card">
+                            <img src="certificates/Academic_Certificate/DSA/GeeksForGeeks_WorkShop.png" alt="GeeksForGeeks Workshop" />
+                            <h4>GeeksForGeeks Workshop</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>FORAGE <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/Advisors & Consulting Services Job bu mastercatd.pdf"></iframe>
+                            <h4>Advisors & Consulting Services Job by Mastercard</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/Client Engagement Job Simulation.pdf"></iframe>
+                            <h4>Client Engagement Job Simulation</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/Client Service Job Simulation.pdf"></iframe>
+                            <h4>Client Service Job Simulation</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/Cyber Job Simulation (1).pdf"></iframe>
+                            <h4>Cyber Job Simulation</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/Cybersecurity Analyst Job Simulation.pdf"></iframe>
+                            <h4>Cybersecurity Analyst Job Simulation</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/Cybersecurity Job Simulation.pdf"></iframe>
+                            <h4>Cybersecurity Job Simulation</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/Data Analytics and Visualization Job Simulation.pdf"></iframe>
+                            <h4>Data Analytics and Visualization Job Simulation</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/Data Analytics Job Simulation (1).pdf"></iframe>
+                            <h4>Data Analytics Job Simulation</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/Data Visualisation tata.pdf"></iframe>
+                            <h4>Data Visualisation - Tata</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/ESG Job Simulation tata.pdf"></iframe>
+                            <h4>ESG Job Simulation - Tata</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/GenAI Job Simulation (1).pdf"></iframe>
+                            <h4>GenAI Job Simulation</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/GenAI Powered Data Analytics Job Simulation.pdf"></iframe>
+                            <h4>GenAI Powered Data Analytics Job Simulation</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/Investment Banking Job Simulation.pdf"></iframe>
+                            <h4>Investment Banking Job Simulation</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/Quantitative Research Job Simulation.pdf"></iframe>
+                            <h4>Quantitative Research Job Simulation</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/Software Engineering Job Simulation.pdf"></iframe>
+                            <h4>Software Engineering Job Simulation</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/Solutions Architecture Job Simulation (1).pdf"></iframe>
+                            <h4>Solutions Architecture Job Simulation</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/FORAGE/Technology Job Simulation (1).pdf"></iframe>
+                            <h4>Technology Job Simulation</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>LINKEDIN <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/LINKEDIN/CertificateOfCompletion_Career Essentials in Generative AI by Microsoft and LinkedIn (2).pdf"></iframe>
+                            <h4>Career Essentials in Generative AI by Microsoft and LinkedIn</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/LINKEDIN/CertificateOfCompletion_Ethics in the Age of Generative AI.pdf"></iframe>
+                            <h4>Ethics in the Age of Generative AI</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/LINKEDIN/CertificateOfCompletion_Generative AI The Evolution of Thoughtful Online Search.pdf"></iframe>
+                            <h4>Generative AI: The Evolution of Thoughtful Online Search</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/LINKEDIN/CertificateOfCompletion_Introduction to Artificial Intelligence.pdf"></iframe>
+                            <h4>Introduction to Artificial Intelligence</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/LINKEDIN/CertificateOfCompletion_Learning Microsoft 365 Copilot for Work.pdf"></iframe>
+                            <h4>Learning Microsoft 365 Copilot for Work</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/LINKEDIN/CertificateOfCompletion_Streamlining Your Work with Microsoft Copilot.pdf"></iframe>
+                            <h4>Streamlining Your Work with Microsoft Copilot</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/LINKEDIN/CertificateOfCompletion_What Is Generative AI.pdf"></iframe>
+                            <h4>What Is Generative AI</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>Oracle <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Oracle & SALESFORCE/Oracle Cloud Infrastructure 2024 Certified AI Foundations Associate ai.pdf"></iframe>
+                            <h4>Oracle Cloud Infrastructure 2024 Certified AI Foundations Associate</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Oracle & SALESFORCE/Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate.pdf"></iframe>
+                            <h4>Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Oracle & SALESFORCE/Oracle Fusion Cloud Applications CX Certified Foundations Associate.pdf"></iframe>
+                            <h4>Oracle Fusion Cloud Applications CX Certified Foundations Associate</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Oracle & SALESFORCE/Oracle Fusion Cloud Applications ERP Foundations Certified Associate.pdf"></iframe>
+                            <h4>Oracle Fusion Cloud Applications ERP Foundations Certified Associate</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Oracle & SALESFORCE/Oracle Fusion Cloud Applications HCM Certified Foundations Associate.pdf"></iframe>
+                            <h4>Oracle Fusion Cloud Applications HCM Certified Foundations Associate</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Oracle & SALESFORCE/Oracle Fusion Cloud Applications SCM Certified Foundations Associate.pdf"></iframe>
+                            <h4>Oracle Fusion Cloud Applications SCM Certified Foundations Associate</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Oracle & SALESFORCE/Oracle Guided Learning Content Developer Certified Foundations Associate - Rel 2.pdf"></iframe>
+                            <h4>Oracle Guided Learning Content Developer Certified Foundations Associate - Rel 2</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>SIMPLILEARN <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/SIMPLiLEARN/AWS Application Migration Service (AWS-MGN) – A Technical Introduction.pdf"></iframe>
+                            <h4>AWS Application Migration Service (AWS-MGN) - A Technical Introduction</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/SIMPLiLEARN/Gemini for Google Workspace.pdf"></iframe>
+                            <h4>Gemini for Google Workspace</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/SIMPLiLEARN/Generative AI for Beginners.pdf"></iframe>
+                            <h4>Generative AI for Beginners</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/SIMPLiLEARN/Get Started with Databricks for Generative AI.pdf"></iframe>
+                            <h4>Get Started with Databricks for Generative AI</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/SIMPLiLEARN/Getting Python Interview Ready.pdf"></iframe>
+                            <h4>Getting Python Interview Ready</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/SIMPLiLEARN/Git Training.pdf"></iframe>
+                            <h4>Git Training</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/SIMPLiLEARN/Introduction to Prompt Engineering with GitHub Copilot.pdf"></iframe>
+                            <h4>Introduction to Prompt Engineering with GitHub Copilot</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/SIMPLiLEARN/Learn Advanced C++ Course Online.pdf"></iframe>
+                            <h4>Learn Advanced C++ Course Online</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/SIMPLiLEARN/ReactJS for Beginners.pdf"></iframe>
+                            <h4>ReactJS for Beginners</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/SIMPLiLEARN/Salesforce Administrator & App Builder.pdf"></iframe>
+                            <h4>Salesforce Administrator & App Builder</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/SIMPLiLEARN/Understanding Placement Groups.pdf"></iframe>
+                            <h4>Understanding Placement Groups</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>NISM & FINANCE <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/NISM & FINANCE/business analyst.pdf"></iframe>
+                            <h4>Business Analyst</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/NISM & FINANCE/Financial-Literacy-for-Bharat_Financial-Literacy-Course-for-Bharat_Himanshu-waja.pdf"></iframe>
+                            <h4>Financial Literacy for Bharat - Himanshu Waja</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/NISM & FINANCE/Listing-on-Social-Stock-Exchange_Listing-on-Social-Stock-Exchange_Himanshu-waja.pdf"></iframe>
+                            <h4>Listing on Social Stock Exchange - Himanshu Waja</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/NISM & FINANCE/Municipal-Bonds_Municipal-Bonds-Course_.pdf"></iframe>
+                            <h4>Municipal Bonds Course</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/NISM & FINANCE/national financial literacy quize 2025.pdf"></iframe>
+                            <h4>National Financial Literacy Quiz 2025</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/NISM & FINANCE/Online-Dispute-Resolution-ODR-Mechanism_Online-Dispute-Resolution-ODR-Mechanism_Himanshu-waja.pdf"></iframe>
+                            <h4>Online Dispute Resolution (ODR) - Himanshu Waja</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/NISM & FINANCE/rbi quize.pdf"></iframe>
+                            <h4>RBI Quiz</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>Google <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/GOOGLE/Bring_Ai_To_Work_Workshop.pdf"></iframe>
+                            <h4>Bring AI To Work Workshop</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/GOOGLE/Google Powered Performance Ads Certification.pdf"></iframe>
+                            <h4>Google Powered Performance Ads Certification</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>MICRO <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/MICRO/EXPLORE AI CHALLENGE.pdf"></iframe>
+                            <h4>Explore AI Challenge</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>NVIDIA <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/NVIDIA/Introduction to Transformer-Based Natural Language Processing.pdf"></iframe>
+                            <h4>Introduction to Transformer-Based Natural Language Processing</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>PLAYSTORE <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/PLAYSTORE/playstore.pdf"></iframe>
+                            <h4>Play Store</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>UDEMY <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/UDEMY/SQL Bootcamp query like a PRO in 93 minutes 2025.pdf"></iframe>
+                            <h4>SQL Bootcamp - Query Like a PRO in 93 Minutes 2025</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>LETS!UPGRADE <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Lets!Upgrate/Build RAG Chatbot with Python.pdf"></iframe>
+                            <h4>Build RAG Chatbot with Python</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Lets!Upgrate/Build Your First Al Model in Just 3 Days.pdf"></iframe>
+                            <h4>Build Your First AI Model in Just 3 Days</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Lets!Upgrate/Flutter Bootcamp.pdf"></iframe>
+                            <h4>Flutter Bootcamp</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Lets!Upgrate/Git & GitHub Bootcamp.pdf"></iframe>
+                            <h4>Git & GitHub Bootcamp</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Lets!Upgrate/MySQL Bootcamp.pdf"></iframe>
+                            <h4>MySQL Bootcamp</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Lets!Upgrate/Public Speaking Skills Bootcamp.pdf"></iframe>
+                            <h4>Public Speaking Skills Bootcamp</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Lets!Upgrate/React Bootcamp.pdf"></iframe>
+                            <h4>React Bootcamp</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Lets!Upgrate/Social Media Marketing.pdf"></iframe>
+                            <h4>Social Media Marketing</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Lets!Upgrate/Spotify Clone using Roact.pdf"></iframe>
+                            <h4>Spotify Clone using React</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/Lets!Upgrate/Zero to Python Hero_ Code Smart with Al.pdf"></iframe>
+                            <h4>Zero to Python Hero - Code Smart with AI</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggleCerts(this)">
+                    <h3>INTERNSHIP <span class="toggle-arrow">▶</span></h3>
+                    <div class="certs-grid">
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/CodeAlpha.pdf"></iframe>
+                            <h4>CodeAlpha</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/CodeSoft_.py_24.pdf"></iframe>
+                            <h4>CodeSoft Python 24</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/CodeSoft_.py_29.pdf"></iframe>
+                            <h4>CodeSoft Python 29</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/CodeSoft_WebDEV_18.pdf"></iframe>
+                            <h4>CodeSoft Web Development 18</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/Himanshu Sanjay  Waja.pdf"></iframe>
+                            <h4>Himanshu Sanjay Waja</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/himanshu waja.pdf"></iframe>
+                            <h4>Himanshu Waja</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/TechnoGrowth Software Solutions Pvt. Ltd_.pdf"></iframe>
+                            <h4>TechnoGrowth Software Solutions Pvt. Ltd</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/TechnoHacks_Data Analytics.pdf"></iframe>
+                            <h4>TechnoHacks Data Analytics</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/TechnoHacks_Full Stack Development.pdf"></iframe>
+                            <h4>TechnoHacks Full Stack Development</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/TechnoHacks_Machine Learning.pdf"></iframe>
+                            <h4>TechnoHacks Machine Learning</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/TechnoHacks_Python Development.pdf"></iframe>
+                            <h4>TechnoHacks Python Development</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/TechOctaNet_py.pdf"></iframe>
+                            <h4>TechOctaNet Python</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/TechOctanet_python.pdf"></iframe>
+                            <h4>TechOctaNet Python</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/TechOctanet_WebDev.pdf"></iframe>
+                            <h4>TechOctaNet Web Development</h4>
+                        </div>
+                        <div class="cert-card">
+                            <iframe src="certificates/Academic_Certificate/INTERNSHIP/VaultOfCodes.pdf"></iframe>
+                            <h4>VaultOfCodes</h4>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <strong>Total Internship Certificates: 15</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="internship-opportunity" class="internship-button-section">
+            <div class="container">
+                <h2>Explore Opportunities</h2>
+                <a href="internship.html" class="internship-button">Internship Opportunity</a>
+            </div>
+        </section>
+
+        <section id="project-spotlight" class="container">
+            <div class="custom-card">
+                <h3>🚀 Project Spotlight</h3>
+                <p>This is a sample project highlight card. You can use it to showcase your best work or achievements.</p>
+            </div>
+        </section>
+
+        <section id="register" class="form-section">
+            <div class="form-container">
+                <h2>User Registration</h2>
+                <form>
+                    <label>First Name</label>
+                    <input type="text" required>
+
+                    <label>Last Name</label>
+                    <input type="text" required>
+
+                    <label>Email Address</label>
+                    <input type="email" required>
+
+                    <label>Password</label>
+                    <input type="password" id="password" required oninput="checkStrength(this.value)">
+                    <div id="strengthText" class="strength"></div>
+
+                    <label>Confirm Password</label>
+                    <input type="password" required>
+
+                    <label>Date of Birth</label>
+                    <input type="date" required>
+
+                    <label>Gender</label>
+                    <select required>
+                        <option value="">Select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+
+                    <label>Profile Picture</label>
+                    <input type="file" accept="image/*">
+
+                    <label><input type="checkbox" required> I agree to the Terms and Conditions</label>
+
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function toggleCerts(folderElem) {
+            const certsDiv = folderElem.querySelector('.certs-grid');
+            const arrow = folderElem.querySelector('.toggle-arrow');
+            folderElem.classList.toggle('active');
+
+            if (certsDiv.style.display === 'grid') {
+                certsDiv.style.display = 'none';
+            } else {
+                certsDiv.style.display = 'grid';
+                const cards = certsDiv.querySelectorAll('.cert-card');
+                cards.forEach((card, index) => {
+                    card.style.animation = `slideIn 0.3s ease ${index * 0.05}s forwards`;
+                });
+            }
+        }
+
+        // Add CSS animation for card slide-in effect dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // JavaScript for password strength check
+        function checkStrength(password) {
+            let strengthText = document.getElementById('strengthText');
+            if (!password) {
+                strengthText.textContent = '';
+                strengthText.className = 'strength';
+                return;
+            }
+            // Check for length, numbers, letters, and special characters
+            const hasNumber = /[0-9]/.test(password);
+            const hasLetter = /[A-Za-z]/.test(password);
+            const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+            if (password.length < 6) {
+                strengthText.textContent = 'Weak';
+                strengthText.className = 'strength weak';
+            } else if (password.length >= 8 && hasNumber && hasLetter && !hasSpecial) {
+                strengthText.textContent = 'Medium';
+                strengthText.className = 'strength medium';
+            } else if (password.length >= 10 && hasNumber && hasLetter && hasSpecial) {
+                strengthText.textContent = 'Strong';
+                strengthText.className = 'strength strong';
+            } else {
+                strengthText.textContent = 'Weak'; // Default to weak if criteria not met
+                strengthText.className = 'strength weak';
+            }
+        }
+
+        // DOMContentLoaded event listener for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const certCards = document.querySelectorAll('.cert-card');
+            certCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                    this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.15)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.08)';
+                });
+            });
+
+            const socialCards = document.querySelectorAll('.social-card');
+            socialCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                    this.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = 'var(--shadow-medium)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
